@@ -18,7 +18,7 @@ def emojis_replacement(col):
     
     
 def lower_column(column):
-  for col in [column]:
+  for col in df[column]:
     df[col]=df[col].str.lower()
     
 PUNCT_TO_REMOVE = string.punctuation
