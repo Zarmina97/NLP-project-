@@ -10,18 +10,6 @@ nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
 
 
-//data cleaning 
-def check_nanColumns(dfRaw):
-    nan_col = []
-    cols = list(dfRaw.columns)
-    for col in cols:
-        if dfRaw[col].isnull().values.any() == True:
-            nan_col.append(col)
-    return nan_col
-
-
-
-// Data Preprocessing steps 
 def emojis_replacement(col):
   for index, i in enumerate(col):
     i=str(i).replace("�", "")
@@ -75,13 +63,10 @@ def remove_html(text):
     return html_pattern.sub(r'', text)
 
 
-//Data Exploration
-
-
-
-
-
-
-//Feature Engineering
-
-
+def check_nanColumns(dfRaw):
+    nan_col = []
+    cols = list(dfRaw.columns)
+    for col in cols:
+        if dfRaw[col].isnull().values.any() == True:
+            nan_col.append(col)
+    return nan_col
