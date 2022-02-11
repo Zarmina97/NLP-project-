@@ -1,5 +1,8 @@
 import string
 import nltk
+import re
+import pandas as pd
+import numpy as np
 nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
@@ -7,6 +10,18 @@ nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
 
 
+//data cleaning 
+def check_nanColumns(dfRaw):
+    nan_col = []
+    cols = list(dfRaw.columns)
+    for col in cols:
+        if dfRaw[col].isnull().values.any() == True:
+            nan_col.append(col)
+    return nan_col
+
+
+
+// Data Preprocessing steps 
 def emojis_replacement(col):
   for index, i in enumerate(col):
     i=str(i).replace("�", "")
@@ -58,3 +73,15 @@ def remove_urls(text):
 def remove_html(text):
     html_pattern = re.compile('<.*?>')
     return html_pattern.sub(r'', text)
+
+
+//Data Exploration
+
+
+
+
+
+
+//Feature Engineering
+
+
