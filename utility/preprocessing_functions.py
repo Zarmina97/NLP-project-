@@ -10,6 +10,16 @@ nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
 
 
+def check_nanColumns(dfRaw):
+    nan_col = []
+    cols = list(dfRaw.columns)
+    for col in cols:
+        if dfRaw[col].isnull().values.any() == True:
+            nan_col.append(col)
+    return nan_col
+
+
+
 def emojis_replacement(col):
   for index, i in enumerate(col):
     i=str(i).replace("�", "")
@@ -18,12 +28,12 @@ def emojis_replacement(col):
         i=i.replace(e, m+' ')
         i=i.replace('_', '')
     col.loc[index]=i
-    
-    
+
+
 def lower_column(column):
   for col in df[column]:
     df[col]=df[col].str.lower()
-    
+
 PUNCT_TO_REMOVE = string.punctuation
 def remove_punctuation(text):
     """custom function to remove the punctuation"""
@@ -63,10 +73,6 @@ def remove_html(text):
     return html_pattern.sub(r'', text)
 
 
-def check_nanColumns(dfRaw):
-    nan_col = []
-    cols = list(dfRaw.columns)
-    for col in cols:
-        if dfRaw[col].isnull().values.any() == True:
-            nan_col.append(col)
-    return nan_col
+
+
+
