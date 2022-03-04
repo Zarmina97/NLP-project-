@@ -30,7 +30,9 @@ Python 3.7
 -------------------------------
 
 [Zarmina Ursino](https://www.linkedin.com/in/zarminaursino/)
+
 [Jyoti Yadav](https://www.linkedin.com/in/jyoti-yadav-64916b160/)
+
 [Sandeep Kushwaha] (https://www.linkedin.com/in/xandie985/)
 
 
