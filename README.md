@@ -20,8 +20,7 @@ The main objective of this task is to predict the likes of instagram post
 
 
 ## How to Run
-----------
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1AKYf8dD6lZLiOd7QxE5saW43EjcSMECk#scrollTo=cfF-p-cNgnFd)
+-----------
 
 
 ## Built With
