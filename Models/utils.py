@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import xgboost as xgb
 import seaborn as sns
+from sklearn.svm import SVC
 from sklearn import preprocessing
 from sklearn.metrics import r2_score
 from matplotlib import pyplot as plt
@@ -57,6 +58,7 @@ def plot_feature_importance(importance,names,model_type):
   plt.title(model_type + 'FEATURE IMPORTANCE')
   plt.xlabel('FEATURE IMPORTANCE')
   plt.ylabel('FEATURE NAMES')
+
 
 
 
