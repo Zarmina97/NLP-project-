@@ -38,33 +38,44 @@ def hyperparameterTuning_RandomForest(x, y):
     rf_random.fit(x, y)
     return rf_random.best_params_
 
+'''
+importance: (ndarray)
+names: (pandas.core.indexes.numeric.Int64Index) - has to be converted into list
+'''
+def plot_feature_importance(feature_importance, names, model_type, Figurefolder):
 
-def plot_feature_importance(importance, names, model_type, Figurefolder):
 
-    # Create arrays from feature importance and feature names
-    feature_importance = np.array(importance)
-    feature_names = np.array(names)
-
-    for i, v in enumerate(feature_importance):
-        print('Feature: %0d, Score: %.5f' % (i, v))
+    # # Create arrays from feature importance and feature names
+    # feature_importance = np.array(importance)
+    # feature_names = np.array(names)
 
     # Create a DataFrame using a Dictionary
-    data = {'feature_names': feature_names,
-            'feature_importance': feature_importance}
+    data = {'feature_names': names,
+            'feature_importance': list(feature_importance)}
     fi_df = pd.DataFrame(data)
 
     # Sort the DataFrame in order decreasing feature importance
-    fi_df.sort_values(by=['feature_importance'], ascending=False, inplace=True)
+    fi_df.sort_values('feature_importance', inplace = True)
+    # fi_df.sort_values(by=['feature_importance'], ascending=True, inplace=True)
 
     # Define size of bar plot
     plt.figure(figsize=(20, 20))
     # Plot Searborn bar chart
-    sns.barplot(x=fi_df['feature_importance'], y=fi_df['feature_names'])
+    sns.barplot(x=fi_df['feature_names'], y=fi_df['feature_importance'])
     # Add chart labels
     plt.title(model_type + 'FEATURE IMPORTANCE')
-    plt.xlabel('FEATURE IMPORTANCE')
-    plt.ylabel('FEATURE NAMES')
+    plt.xlabel('FEATURE NAMES')
+    plt.xticks(rotation=90)
+    plt.ylabel('FEATURE IMPORTANCE')
     plt.savefig(Figurefolder + "/4.png")
+
+
+def featureScore(importance):
+    # Create arrays from feature importance and feature names
+    feature_importance = np.array(importance)
+    for i, v in enumerate(feature_importance):
+        print('Feature: %0d, Score: %.5f' % (i, v))
+
 
 
 def folderPath(folderName):
@@ -138,3 +149,40 @@ def Normalizing(X):
     normalizer = preprocessing.MinMaxScaler()
     normalized = pd.DataFrame(normalizer.fit_transform(X),  columns = X.columns)
     return normalized
+
+
+
+def removeColumnContainString(df):
+    cols_to_remove = []
+    for col in df.columns:
+        try:
+            _ = df[col].astype(float)
+        except ValueError:
+            print('Couldn\'t covert %s to float' % col)
+            cols_to_remove.append(col)
+            pass
+    # keep only the columns in df that do not contain string
+    df = df[[col for col in df.columns if col not in cols_to_remove]]
+    return df
+
+
+
+def Feature_Extraction(dataframe,n,featureExtraction):
+    vectorizer = featureExtraction(analyzer = "word", tokenizer = None, preprocessor = None, stop_words = None,max_features=100)
+    bow_words = vectorizer.fit_transform(dataframe)
+    bow_clean = bow_words.toarray()
+    vocab = vectorizer.get_feature_names()
+    # print(vocab)
+    new_vocab = []
+    for word in vocab:
+        if len(word)>n:
+            new_vocab.append(word)
+    print (' '.join(new_vocab))
+    words_clean = pd.DataFrame(data=bow_clean, columns=vocab)
+    # words_clean.head()
+    j1 = words_clean.columns.get_level_values(0).isin(new_vocab)
+    words_clean = words_clean.loc[:,j1]
+    # words_clean.head()
+    return words_clean
+
+
