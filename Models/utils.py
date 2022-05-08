@@ -42,7 +42,7 @@ def hyperparameterTuning_RandomForest(x, y):
 importance: (ndarray)
 names: (pandas.core.indexes.numeric.Int64Index) - has to be converted into list
 '''
-def plot_feature_importance(feature_importance, names, model_type, Figurefolder):
+def plot_feature_importance(feature_importance, names, model_type):
 
 
     # # Create arrays from feature importance and feature names
@@ -67,7 +67,6 @@ def plot_feature_importance(feature_importance, names, model_type, Figurefolder)
     plt.xlabel('FEATURE NAMES')
     plt.xticks(rotation=90)
     plt.ylabel('FEATURE IMPORTANCE')
-    plt.savefig(Figurefolder + "/4.png")
 
 
 def featureScore(importance):
@@ -86,28 +85,12 @@ def folderPath(folderName):
 
 def metrics(actual, predicted):
     rmse = np.sqrt(mean_squared_error(actual, predicted))
-    print("RMSE: %f" % (rmse))
-    print()
-
     R2 = r2_score(actual, predicted)
-    print("R2 Score: %f" % (R2))
-    print()
-
     MAE = mean_absolute_error(actual, predicted)
-    print("MAE : %f" % (MAE))
-    print()
-
     MSE = mean_squared_error(actual, predicted)
-    print("MSE : %f" % (MSE))
-    print()
-
     RMSLE = np.log(np.sqrt(mean_squared_error(actual, predicted)))
-    print("RMSLE : %f" % (RMSLE))
-    print()
-
     max_error_ = max_error(actual, predicted)
-    print("max_error : %f" % (max_error_))
-    print()
+    return rmse,R2,MAE,MSE,RMSLE,max_error_
 
 
 def hyperparameterTuning_XGBoost(x, y):
@@ -184,5 +167,9 @@ def Feature_Extraction(dataframe,n,featureExtraction):
     words_clean = words_clean.loc[:,j1]
     # words_clean.head()
     return words_clean
+
+
+
+
 
 
