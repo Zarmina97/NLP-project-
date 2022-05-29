@@ -1,32 +1,11 @@
-# Instagram likes Recommendation System 
-## Dataset
-------------------------------
-Please find the DataSet [Here](https://drive.google.com/drive/folders/1wJ_cLNxH3V3wntJ1snV505Ma82ZFli70?usp=sharing)
+# Success Prediction of Instagram Posts
+The University of Bologna (UniBo) Natural Language Processing (NLP) project. In this project, we utilised the dataset scrapped from Intagram API for the successfull prediction of Instagram posts.
 
+Five different methods (LightGBM, XGBoost, Random Forest,MLP,SVM) were trained and evaluated on the dataset. Our results show that the XGboost roduces the best results in terms of R2 Score on the test set.
 
-## Task
------------------------------------------
-The main objective of this task is to predict the likes of instagram post
+The steps taken are described in detail in the Report. The slides used for the Presentation are also available.
 
-
-## Models
--------------------------------------
-The saved Models are [Here](https://drive.google.com/drive/folders/1wJ_cLNxH3V3wntJ1snV505Ma82ZFli70?usp=sharing)
-
-## Project WorkFlow
---------------------------------------------
-
-
-
-## How to Run
------------
-
-
-## Built With
----------------------------------
-Python 3.7
-
-## Author
+## Authors
 -------------------------------
 
 [Zarmina Ursino](https://www.linkedin.com/in/zarminaursino/)
@@ -35,5 +14,5 @@ Python 3.7
 
 [Sandeep Kushwaha](https://www.linkedin.com/in/xandie985/)
 
-
+##Results
 
