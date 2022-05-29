@@ -1,4 +1,9 @@
 # Success Prediction of Instagram Posts
+-------------------------------
+
+
+# Overview
+-------------------------------
 The University of Bologna (UniBo) Natural Language Processing (NLP) project. In this project, we utilised the dataset scrapped from Intagram API for the successfull prediction of Instagram posts.
 
 Five different methods (LightGBM, XGBoost, Random Forest,MLP,SVM) were trained and evaluated on the dataset. Our results show that the XGboost roduces the best results in terms of R2 Score on the test set.
