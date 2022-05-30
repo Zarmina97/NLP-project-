@@ -1,6 +1,6 @@
 # Success Prediction of Instagram Posts
 -------------------------------
-
+The main goal is to predict the number of likes given a post by building machine learning models. These models will use the meta-features, Natural Language Processing features & CV features to make such predictions.
 
 # Overview
 -------------------------------
@@ -20,4 +20,6 @@ The steps taken are described in detail in the Report. The slides used for the P
 [Sandeep Kushwaha](https://www.linkedin.com/in/xandie985/)
 
 ## Results
+![Screenshot 2022-05-30 180915](https://user-images.githubusercontent.com/72126242/171029562-8f24c1ef-b1ac-436f-b58c-8e8a722d9f8f.png)
+
 
