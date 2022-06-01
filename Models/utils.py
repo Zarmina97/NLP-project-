@@ -128,7 +128,7 @@ def hyperparameterTuning_MLP(X, Y):
     return bestScore, bestParams
 
 
-def Normalizing(X):
+def normalizing(X):
     normalizer = preprocessing.MinMaxScaler()
     normalized = pd.DataFrame(normalizer.fit_transform(X),  columns = X.columns)
     return normalized
