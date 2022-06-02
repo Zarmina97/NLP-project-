@@ -11,6 +11,7 @@ Five different methods (LightGBM, XGBoost, Random Forest,MLP,SVM) were trained a
 # Project Structure
 -----------------------------
 The order of executing the notebooks
+
 ![image](https://user-images.githubusercontent.com/72126242/171617456-cc62279c-7f0e-43b8-a90a-17241ad70453.png)
 
 
