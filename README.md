@@ -8,7 +8,9 @@ The University of Bologna (UniBo) Natural Language Processing (NLP) project. In 
 
 Five different methods (LightGBM, XGBoost, Random Forest,MLP,SVM) were trained and evaluated on the dataset. Our results show that the XGboost roduces the best results in terms of R2 Score on the test set.
 
-The steps taken are described in detail in the Report. The slides used for the Presentation are also available.
+# Project Structure
+-----------------------------
+The order of executing the notebooks
 ![image](https://user-images.githubusercontent.com/72126242/171617456-cc62279c-7f0e-43b8-a90a-17241ad70453.png)
 
 
